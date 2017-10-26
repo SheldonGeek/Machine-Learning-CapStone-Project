@@ -1,2 +1,5 @@
 # Machine-Learning-CapStone-Project
-Machine learning capstone project -> San Francisco Crime Classification -> Crime Map
+Machine learning capstone project 
+Kaggle compeition
+Zillow Prize: Zillow’s Home Value Prediction (Zestimate)
+
