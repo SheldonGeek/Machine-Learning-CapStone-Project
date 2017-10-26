@@ -1,52 +1,49 @@
-# Machine Learning Engineer Nanodegree
-## Capstone Proposal
-Joe Udacity  
-December 31st, 2050
+### Capstone Project Proposal - Machine Learning Engineer Nanodegree
 
-## Proposal
-_(approx. 2-3 pages)_
+## Lei Pan
+## October 25th, 2017
 
-### Domain Background
-_(approx. 1-2 paragraphs)_
+## Zillow’s Home Value Prediction - “Zestimate”
 
-In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
+### Domain background
+Zillow created “Zestimate” which gives customers a lot of information about homes and housing markets at no cost by using publicly available data. 
+
+7.5 million statistical and machine learning models that analyze hundreds of data points on each property are used by Zillow to create and improve “Zestimate”. They improved median margin of error from 14% to 5%. Zillow announced a Kaggle competition to improve the accuracy of “Zestimate” even further.
+
+First round of the competition is about using their existing data to push accuracy of “Zestimate” even further. Second round of the competition is that competitors can bring external data sets to improve the model. The scope of my capstone project is to finish the first round of this competition. 
 
 ### Problem Statement
-_(approx. 1 paragraph)_
+The goal of the project is to predict the log-error between the predicted prices from the model and actual sales price. Mean Absolute Error between the predicted log error and the actual log is used to evaluated the model I am going to develop. It is defined as follow:
+logerror=log(Zestimate)−log(SalePrice)logerror=log(Zestimate)−log(SalePrice)
+https://www.kaggle.com/c/zillow-prize-1#evaluation
+Datasets and Inputs
+train_2016.csv - training set. It has transactions from 1/1/2016 to 12/31/2016
+train_2017.csv - training set. It has transactions from 1/1/2017 to 9/15/2017
+properties_2016.csv - properties for the home features for 2016. 
+properties_2017.csv - properties for the home features for 2017.
+sample_submission.csv - a sample submission file. 
+https://www.kaggle.com/c/zillow-prize-1/data
 
-In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
+### Solution statement
+Since the goal is to predict the log-error between the predicted price and real price and we have all the training and testing dataset for it, this is a very clear supervised learning problem for me. Among all the supervised learning algorithms that I learned through nano degree course, Gradient Boosting model would be a good fit for this problem; because I tested and compared it with other algorithms on multiple supervised learning projects and it gave me the best result. In addition to Gradient Boosting model, another model seems very interesting to me is XGBoosting. This is a great chance to try this model out. In summary, I am going to use both Gradient Boosting model and XGBoosting model to solve the problem. After comparing the results from those two models, I will pick up the best model from this two models.
 
-### Datasets and Inputs
-_(approx. 2-3 paragraphs)_
 
-In this section, the dataset(s) and/or input(s) being considered for the project should be thoroughly described, such as how they relate to the problem and why they should be used. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included with relevant references and citations as necessary It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
+### Benchmark model
+Since Zillow provides their residual errors as well as the their property data and between their estimate and the actual sale prices, I will use the existing Zestimate model as benchmark model.
 
-### Solution Statement
-_(approx. 1 paragraph)_
+### Evaluation metrics
+The log-error between estimation price and the actual sale price will used to evaluate the model I am going to develop.
+ 	Formula for the residual error:
+logerror=log(Zestimate)−log(SalePrice)logerror=log(Zestimate)−log(SalePrice)
+I will train the model on data from 2016 and test the model on data from 2017 using the formula above.
 
-In this section, clearly describe a solution to the problem. The solution should be applicable to the project domain and appropriate for the dataset(s) or input(s) given. Additionally, describe the solution thoroughly such that it is clear that the solution is quantifiable (the solution can be expressed in mathematical or logical terms) , measurable (the solution can be measured by some metric and clearly observed), and replicable (the solution can be reproduced and occurs more than once).
+### Outline of the project design 
+First, I will check the data to see if we have missing values and decide how to handle the data.
+Then, I will do feature selection and feature engineering based on data visualization and correlation analysis I will perform on the dataset.
+I will try out two algorithms 1. Gradient Boosting Model. 2. XGBoosting model.
+For Gradient Boosting Model, I will use Gradient Boosting Model from python sklearn library.
+For XGBoosting model, I will use the latest XGBoosting library. https://xgboost.readthedocs.io/en/latest/
+To boot performance, I will cross validate and use hyperparameter optimization.
+In the end, I will test both models.
+I will pick up the winner for the best results. 
 
-### Benchmark Model
-_(approximately 1-2 paragraphs)_
-
-In this section, provide the details for a benchmark model or result that relates to the domain, problem statement, and intended solution. Ideally, the benchmark model or result contextualizes existing methods or known information in the domain and problem given, which could then be objectively compared to the solution. Describe how the benchmark model or result is measurable (can be measured by some metric and clearly observed) with thorough detail.
-
-### Evaluation Metrics
-_(approx. 1-2 paragraphs)_
-
-In this section, propose at least one evaluation metric that can be used to quantify the performance of both the benchmark model and the solution model. The evaluation metric(s) you propose should be appropriate given the context of the data, the problem statement, and the intended solution. Describe how the evaluation metric(s) are derived and provide an example of their mathematical representations (if applicable). Complex evaluation metrics should be clearly defined and quantifiable (can be expressed in mathematical or logical terms).
-
-### Project Design
-_(approx. 1 page)_
-
-In this final section, summarize a theoretical workflow for approaching a solution given the problem. Provide thorough discussion for what strategies you may consider employing, what analysis of the data might be required before being used, or which algorithms will be considered for your implementation. The workflow and discussion that you provide should align with the qualities of the previous sections. Additionally, you are encouraged to include small visualizations, pseudocode, or diagrams to aid in describing the project design, but it is not required. The discussion should clearly outline your intended workflow of the capstone project.
-
------------
-
-**Before submitting your proposal, ask yourself. . .**
-
-- Does the proposal you have written follow a well-organized structure similar to that of the project template?
-- Is each section (particularly **Solution Statement** and **Project Design**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification?
-- Would the intended audience of your project be able to understand your proposal?
-- Have you properly proofread your proposal to assure there are minimal grammatical and spelling mistakes?
-- Are all the resources used for this project correctly cited and referenced?
