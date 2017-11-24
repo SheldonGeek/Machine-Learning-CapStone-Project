@@ -6,7 +6,7 @@
 * Install the lastest lightGBM. Follow instruction here:https://lightgbm.readthedocs.io/en/latest/Installation-Guide.html
 * Install the lastest XGBoost. Follow instructuion here:http://xgboost.readthedocs.io/en/latest/build.html
 * Make sure you have all the datasets downloaded - train_2016.csv, properties_2016.csv, train_2017.csv, properties_2017.csv, and zillow_data_dictionary.xlsx. You can find all the data here:https://www.kaggle.com/c/zillow-prize-1/data. It's called train_2016_v2.csv on kaggle site. Please change the name to train_2016.csv when running Jupyter notebook.
-* Please put all your datasets inside dataset folder (under root), otherwise Jupyter notebook won't be able to find those datasets.
+* Please put all your datasets inside dataset folder (I put a placeholder file there), otherwise Jupyter notebook won't be able to find those datasets.
 
 ### Project Overview
 * Zillow created “Zestimate” which gives customers a lot of information about homes and housing markets at no cost by using publicly available data. 
